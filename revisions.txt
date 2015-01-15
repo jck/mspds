@@ -1,0 +1,521 @@
+Rev 3.4.3.004
+========================================================================
+11/20/2014 Alexander Festini & Florian Berenbrinker
+
+    New device support:
+    - RF430FRL152H, RF430FRL153H, RF430FRL154H
+    - MSP430FR6972, MSP430FR6970, MSP430FR6922, MSP430FR6920,
+      MSP430FR6872, MSP430FR6870, MSP430FR6822, MSP430FR6820,
+      MSP430FR5972, MSP430FR5970, MSP430FR5872, MSP430FR5870
+
+    Changes:
+    - Advanced hardware cycle counter support
+        - Hardware cycle counters can be freely configured
+        - Support both cycle counters where available
+    - Software breakpoints support when MPU is enabled
+
+    Bug Fixes:
+    - Fixed eZ-FET LED signaling - not according to specification for over-current detection
+    - Fixed secure device message - Report "Security Fuse has been blown" instead of "Unknown device"
+    - Fixed endianness in IntelHex offset record
+    - Fixed clock control module names for MSP430FR413x
+    - Fixed accidentally changing WDT interval on sync
+    - Fixed secure device for MSP430FR413x
+    - Fixed SendJtag mailbox function - Send pattern while Reset line is low
+    - Fixed ResetXv2 function - Send pattern while Reset line is low
+    - Fixed Erase for password protected FRAM devices - do segment erase from 0xFF80 to 0x10000 on all FRAM devices
+      to erase the password and the Reset vector to prevent code execution and to disable the password protection
+    - Fixed possible deadlock in MSP430_Close function
+    - Fixed Reset function for MSP430F5438 non A devices. Mailbox is not functional in Reset state on this device
+
+Rev 3.4.2.007
+========================================================================
+07/30/2014 Alexander Festini & Florian Berenbrinker
+
+    New device support:
+    - MSP430FR2033 Family
+    - MSP430F6736A Family
+    - MSP430FG6626 Family
+
+    Changes:
+    - Improved EnergyTrace stability on longer runs
+    - Improved stability during UIF firmware update from v2 to v3
+    - SMCLK no longer listed for clock control on MSP430i2040
+    - Changed voltage of 3000mV to 3300mV during UIF start-up
+    - Changed MSP-FET UART lines power up state - UART lines are configured to High-Z during MSP-FET start-up
+    - Changed MSP-FET UART to only support fixed baud rates - 9600, 14400, 19200, 28800, 38400, 56000, 57600 and 115200
+
+    New Features:
+    - MSP-FET BSL support - I2C and UART BSL
+        - Could be activated via invalid baud rate commands
+            - 9620 Tristate of all UART/ BSL pins – no current flow into target device
+            - 9621 Configure UART communication without handshake (default start behaviour)
+            - 9622 Configure UART communication with handshake
+            - 9623 Voltage configuration command. Set target VCC hard to 3.3V
+            - 9601 BSL-Entry sequence + Power up 3.3V (UART BSL)
+            - 100000(1) BSL-Entry sequence + Power up 3.3V (I2C BSL)
+            - 400000(1) BSL-Entry sequence + Power up 3.3V (I2C BSL)
+            - 8001 Enable MSP-FET debugger mode - disable of MSP-FET BSL mode
+        - During MSP-FET BSL mode the debugger mode is disabled
+        - Over-current protection of JTAG/I2C/UART and VCC supply lines is switched of in MSP-FET BSL mode
+        - In MSP-FET UART BSL mode only fixed baud rates are supported - 9600, 14400, 19200, 28800, 38400, 56000, 57600 and 115200
+
+    Bug Fixes:
+    - Fixed clock control module definitions For MSP430FR5969/MSP430FR6989
+    - Fixed potential race condition in communication with Fet (could get out of sync)
+    - Fixed potential race condition between events (eg. LPMx.5) and API calls
+    - Fixed memory leak when receiving asynchronous events (breakpoints, trace, ...)
+    - Fixed case of hex digits when writing Intel Hex (now upper case)
+    - Fixed debug access affect LPM current consumption on FR5969
+    - Fixed Race conditions during LPM5/breakpoint events
+
+Rev 3.4.1.000
+========================================================================
+04/24/2014 Alexander Festini / Florian Berenbrinker
+
+    New device support:
+    - MSP430FG6626
+    - MSP430FR4133 Family
+    - MSP430FR6989 Family
+
+    New Features:
+    - User code erase via JTAG mailbox on MSP430FR4133 family
+    - MSP-FET backchannel UART support
+
+    Changes:
+    - Reduced calibration time when setting VCC
+
+    Bug Fixes:
+    - eZ-FET update fails in Ubuntu 64bit due to modemmanager blocking the port. When installing CCS, debugger
+      ports will be blacklisted for modemmanager
+    - Selecting invalid JTAG protocol on eZ-FET returns error instead of silently using SBW
+    - Prevent MSP-FET from detecting over current when connecting to a target driving the JTAG lines active low
+    - Added fix to prevent unintended execution of memory content as code during debug
+    - Restoring software breakpoints after external code download on MSP430L092
+    - Fixed typo in device name for MSP430FR5857
+    - Removed non-existent timers from clock control settings
+    - Saving to Intel format did not pad CRC values lower than 0x10 with leading 0
+
+    Known Limitations:
+    - On devices with FLL, clock control does not allow to keep clocks running, while the device is halted and
+     the clock is sourced by the FLL
+    - V1.3 of UIF does not work in SBW2 mode with 2.2nf cap on reset line
+    - eZ-FET UART might lose bytes with 115k baud (no handshake enabled) and DMA as data loopback on target device
+    - MSP-FET EEM access to F149 and L092 devices is only possible with JTAG speed slow
+    - MSP430FR4133 might not work reliably under debug control when XT1 is used as clock source, because of overwritten
+      XT1 drive strength register
+    - MSP430FR4133 might not work reliably under debug control when BSL unlock is executed via DLL/IDE, because of overwritten
+      DCO CSCTL1 register
+
+Rev 3.4.0.020
+========================================================================
+01/29/2014 Florian Berenbrinker
+
+	New device support:
+	- FR6989 PG1.0 / RevD			- !! Debug support only, NO EnergyTrace or ULP features !!
+	- FR5969 PG2.0 / RevE			- ULP feature support, but no EnergyTrace support
+	- FR5969 PG3.0 / RevF	Family	- Full EnergyTrace and ULP feature support
+	- F67621, F67641
+	- MSP430F6779A Family
+
+	New Features:
+	- Enhanced support for new MSP-FET debuggers - Added EnergyTrace support
+	- 64 bit JSTATE readout for FR5969 PG2.0 / RevE and FR5969 PG3.0 / RevF family support
+	- Added MSP-FET BSL firmware project
+	- Enhanced BSL library to support MSP-FET - load different RAM BSLs for MSP-FET and eZ-FET
+	- Added DCDC-MCU firmware project to MSP-FET firmware project
+
+	Changes:
+	- Remove MSP430_GetJTAGID() from DLL API completely
+	- Enhanced debug flow for FR5969 family
+	- Enhanced power up mechanism to handle all MSP430 device requirements
+
+	Bug Fixes:
+	- Debugger-started in "FreeRun" mode has higher current than real free run without debugger
+	- EnergyTrace - No current update during unknown states
+	- Wrong CPU ARCH for FR5969 device inside template database
+	- MSP430_SetVCC() with always on regulation has impact EnergyTrace energy and current calculation
+	- EnergyTrace accumulated energy output mismatches expected values
+	- Using emulated breakpoints option in IAR – corrupts RAM memory
+	- EnergyTrace calibration sporadically produces wrong values
+	- EnergyTrace fine mode cannot be turned off
+	- JTAG password unlock not possible in SBW mode
+	- eZ-FET DCDC PWM width, is too long for first PWM after no load phase
+	- DLL crashes if memory function is called with read/write length equals zero
+	- Code placed on the first location of the Info Memory cannot be executed
+	- MSP-FET FPGA access - HIL timeout does not work as expected
+	- F14x/F14x1 identification failed
+	- MSP430_Error_String returns INT instead of string w/o MSP430_Initialize up front
+	- Power/Mode LEDs on MSP-FET do work not according to spec.
+    - DLL does not support all MSP430F5259 spins
+	- EnergyTrace sampling speed too low
+	- MSP-FET: EnergyTrace current error high - around 10mA
+	- OpenDevice forced with wrong protocol - works unexpectedly second time
+	- SFR register mask off by one on odd address	- DLL uses old/wrong setPC macro for 1xx-4xx devices
+	- Connect to running target did not work
+	- Download/verify error if code size > 250 bytes on FR5969 devices
+	- MSP-FET Linux sends config. command on CDC 2 (APP UART) channel, which results in NULL pointer
+	- MSP-FET JTAG pins TDI and TMS not High-Z after power up
+	- MSP430_Configure call is required to enable energy measurement
+	- Energy Trace related error messages - message updates required
+	- Fixed L092 startup bug
+	- Disable Energy Trace for Wolverine Rev. E
+
+	Known Limitations:
+	- On devices with FLL, clock control does not allow to keep
+	  clocks running, while the device is halted and the clock is
+      sourced by the FLL
+      Workaround: None-
+	- V1.3 of UIF does not work in SBW2 mode with 2.2nf CAP on Rest line
+      Workaround: None
+	- eZ-FET UART might lose bytes with 115kbaut (no handshake enabled) and DMA as data loopback on target device
+	- MSP-FET EEM access to F149 and L092 devices is only possible with JTAG speed slow
+	- !BETA! MSP-FET poly FuseBlow in SBW2 is beta software state not release state !BETA!
+	- MSP-FET UART not implemented - only dummy implementation
+
+Rev 3.3.1.004
+========================================================================
+   09/19/2013 Alexander Festini
+
+   New device support:
+    -MSP430F5252
+    -MSP430F5253
+    -MSP430F5254
+    -MSP430F5255
+    -MSP430F5256
+    -MSP430F5257
+    -MSP430F5258
+
+Rev 3.3.1.003
+========================================================================
+   06/28/2013 Florian Berenbrinker
+
+   New device support:
+	- FR6989 PG1.0 	- !! Debug support only, NO EnergyTrace or ULP features !!
+	- FR5969 PG2.0 - EnergyTrace and ULP feature support
+	- FR5969 PG1.2 - !! Debug support only, NO EnergyTrace or ULP features !!
+	- MSP430G2xx4 	- DLLv2 eZ430 support update
+	- MSP430F5259 Family
+	- MSP430F5249 Family
+	- MSP430I2040 Family
+
+   New Features:
+   - Enhance support for new eZ-FET debuggers - Add EnergyTrace support -
+   - 64 bit Jstate readout for FR5969 PG2.0
+   - Add eZ-FET & eZ-FET lite BSL firmware project
+   - Add new Software Breakpoint API, to configure easily Software Breakpoints
+   - Add DCDC MCU firmware project to eZ-FET firmware project
+
+   Changes:
+   - Move EnergyTrace files into TI-TSPA license section
+   - Remove Sobel-Filter form EneryTrace processors ET7 / ET8
+
+   Bug Fixes:
+	- Fix Spikes on EnergyTrace current output
+	- Fix EnergyTrace fine mode cannot be turned off
+	- Fix Magic pattern is not fully functional
+	- 0x3FFF when reading upper 16 byte from RAM on FR5969
+	- After calling the status = MSP430_Reset(..); TST line high
+	- Preprocessor define did not work on one file
+	- Fix UART communication on eZ-FET - unstable if handshake not used
+	- Fix EnergyTrace calibration produces sporadically wrong values
+	- Could not set device VCC – COM port blocked by OS
+	- Fixed Cycle Counter reset
+	- Clearer error message on communication error (previously “Could not set VCC”)
+	- Fixed potential timeout on data verification (MSP430F6659 in SBW2)
+	- Returning correct architecture for MSP430F5969 in DEVICE_T
+	- Added main flash segment size to DEVICE_T
+
+
+  Known Limitations:
+   - On devices with FLL, clock control does not allow to keep
+     clocks running, while the device is halted and the clock is
+     sourced by the FLL
+     Workaround: None
+   - V1.3 of UIF does not work in SBW2 mode with 2.2nf CAP on Rest line
+     Workaround: None
+========================================================================
+
+
+Rev 3.3.0.006
+========================================================================
+   01/31/2013 Florian Berenbrinker
+   
+   New device support:
+     Xenon (G2xx5), G2xx4, Haptics (MSP430TCH5E)
+	 
+   New Features:
+   - Add support for new eZ-FET & eZ-FET light debuggers 
+   - Add new firmware project for for eZ-FET & eZ-FET light debuggers
+   - Implement HID recovery mechanism for eZ-FET & eZ-FET light debuggers 
+   - Link HID-BSL lib to DLLv3 to handle HID communication 
+   - Add unique Tool ID to eZ-FET & eZ-FET and MSP-FET430UIF 
+   - Create function to scan for multiple debuggers with different PID & VID
+   - Add Hil_Configure api to configure protocol on low level  
+    
+   Changes:
+   - Change update mechanism to handle different debuggers by adding different
+     update managers
+   - Remove polling handling form DebugManager by creating new PollingManager
+   - Change overcurrent detecion on MSP-FET430UIF to shut down power after 60ms
+     in overcurrent case not after 10ms
+   - Separate all FW project into hardware specific parts
+   - Deprecate old Rest function commands/states 
+   - Fix thread race conditions in CDC IO channel class
+   - remove CDC & FLOW Control for new eZ-FET & eZ-FET light debuggers
+      
+   Bug Fixes: 
+   - Improve error message if MSP-FET430UIF FW doesn't match
+   - Removed C++ headers from include directory
+   - Clear LPMx.5 debug settings when calling MSP430_Close
+   - Fix funclet offset addresses, which could cause RAM corruption
+   
+  Known Limitations:
+   - On devices with FLL, clock control does not allow to keep
+     clocks running, while the device is halted and the clock is
+     sourced by the FLL
+     Workaround: None
+   - V1.3 of UIF does not work in SBW2 mode with 2.2nf CAP on Rest line
+     Workaround: None
+========================================================================
+
+
+Rev 3.2.5.004
+========================================================================
+   14/9/2012 Alexander Festini/Robert Lessmeier
+
+   New device support:
+     MSP430F535x, MSP430F565x, MSP430F635x, MSP430F665x
+
+   Changes:
+   - Removed deprecated functions
+      MSP430_Identify
+      MSP430_Breakpoint
+      MSP430_EEM_Open
+      MSP430_EEM_Read_Register
+      MSP430_EEM_Read_Register_Test
+      MSP430_EEM_Write_Register
+      MSP430_EEM_Close
+
+   Bug Fixes:
+   - Improved update stability and behavior in case of a failed update
+   - Fixed occasional errors after firmware update without power cycle
+   - Fixed wrong RAM sizes for MSP430FR57xx devices
+   - Fixed bug where 0x00 was written behind a FRAM write
+   - Fixed issue where EDI parity could be invalidated on writing
+========================================================================
+
+
+Rev 3.2.4.005 (Bugfix release)
+========================================================================
+   28/6/2012 Robert Lessmeier/Günther Höne
+
+   New device support:
+   - No new devices added.
+   Bug Fixes:
+   - Able to read Memory location 0x1B00 without generating a BOR
+   - Improved communication reliability: error exceptions are properly
+     caught inside the DLL
+   - Fixed Fuse-blow for 5xx/6xx and FRAM devices    
+   - Fixed regression in LPMx.5 handling
+
+ For further details refer to version 3.2.4.002
+========================================================================
+
+
+Rev 3.2.4.002
+========================================================================
+   06/6/2012 Florian Berenbrinker
+
+   New device support:
+   MSP430SL5438A, MSP430F6779(1),
+    CC430F5123, CC430F5125, CC430F5143, CC430F5145, CC430F5147
+    CC430F6143, CC430F6145, CC430F6147
+    MSP430FR5969, MSP430FR5949 (Wolverine)
+
+   Bug Fixes:
+   - Correct DLL database entry for min. flash voltage on 471x devices
+   - Fixed single stepping issues on L092
+   - Fixed DCO calibration Bug, that the original DCO setting was not
+     restored after debug break(device running slower after read)
+   - Fixed DLL database entry for the EEM level of the MSP430F5228
+   - Fixed disassembly window issues on MSP430FR59xx devices
+   - Fixed issues with Fast port close/open
+
+   New Features:
+   - MPU and IP protection are handled by the DLL on all MSP430FRxx
+     devices -> Access violations will be suppressed by the debugger
+   - Implement WriteMemoryQuick() function to write directly into the
+     FRAM memory using JTAG
+   - Remove write and erase funclets for MSP430FR59xx devices
+       - Erase is now handled using the JTAG mailbox
+       - Write is done using the WriteMemoryQuick() function
+   - Implemented erase mechanism to erase IP protected memory areas
+     without accessing it
+   - Enhanced USB-FET VCC startup behavior to be identical compared
+     to the V2 DLL
+       - VCC will be activated when the USB connector of the USB-FET
+         is plugged in
+   - Enhanced EEM support
+       - Enhanced state storage implementation to be fully functional
+       - Implemented cycle counter for counting cycles during a single
+         run
+
+   Known Limitations:
+   -   On devices with FLL, clock control does not allow to keep
+       clocks running, while the device is halted and the clock is
+       sourced by the FLL
+       Workaround: None
+   -   EEM not fully supported (Sequencer/variable watch)
+       Workaround: None
+   -   V1.3 of UIF does not work in SBW2 mode with MSP430F6638
+       Workaround: None
+========================================================================
+
+
+Rev 3.2.3.015
+========================================================================
+   03/16/2012 Florian Berenbrinker
+
+   New device support:
+   None
+
+   Bug Fixes:
+   -   Writing to BSL is now working when an erase or erase check,
+       followed by a reset, was performed before
+   -   Writing to memory with enabled MPU on FRAM devices not
+       possible anymore
+   -   Fixed a bug causing flash erase and write errors on MSP430F413
+   -   Size of DEVICE_T struct has been increased to match embedded
+       v2 DLL
+   -   Port handling has been changed to prevent a port can't be
+       reopened after closing
+   -   Added fix to prevent possible RAM corruption when reading CPU
+       registers on 5xx/6xx devices
+
+   New Features:
+   -   Added calibration of clock frequency to ensure exact flash
+       timings, before Flash erasing or writing
+   -   The UIF now starts up supplying 3V to target
+
+   Known Limitations:
+   -   On devices with FLL, clock control does not allow to keep
+       clocks running, while the device is halted and the clock is
+       sourced by the FLL
+       Workaround: None
+   -   Cycle Counter not functional.
+       Workaround: None
+   -   EEM not fully supported (Trace/Sequencer/variable watch
+       Workaround: None
+   -   V1.3 of UIF did not work in SBW2 mode with MSP430F6638
+       Workaround: None
+========================================================================
+
+
+Rev 3.2.3.002
+========================================================================
+   12/23/2011 Florian Berenbrinker
+
+   New device support:
+   None
+
+   Bug Fixes:
+   -   All 2xx Special Function Registers are not longer read as 0x3FFF
+   -   Step over certain instructions is now working
+   -   Flash programming at VCC < 2.7V for F1xx/F4xx is now working
+   -   FLL Debug Error, RST after GO is fixed
+   -   C092: Connection to ROM device generates no errors anymore
+   -   Write File API call no longer fails with ERROR_OPERATION_ABORTED
+   -   Fixed FE427A / T103 Problems with FLL clock frequency while
+       debugging
+   -   Debugger operation sets VMAIFG on MSP430F5438A
+   -   DLL now returns when USB FET is disconnected during FW update
+
+   Known Limitations:
+   -   If you unplug the USB FET during an active debug session,
+       the session could be interrupted and the IDE could stop working.
+   -   Cycle Counter not functional.
+       Workaround: None
+   -   EEM not fully supported (Trace/Sequencer/variable watch
+       Workaround: None
+   -   UIF supply not according to DLLv2
+       Workaround: None
+   -   V1.3 of UIF does not work in SBW2 mode with MSP430F6638
+       Workaround: None
+========================================================================
+
+
+Rev 3.2.2.000
+========================================================================
+   11/25/2011 Florian Berenbrinker
+
+   New device support:
+   None
+
+   Bug Fixes:
+   -   LPMx.5 debug is now functional after wakeup from LPMx.5
+   -   MSP430-Run is working in combination with LPMx.5
+   -   EEM Register Breakpoint now fully functional on CPUX derivatives
+   -   Fixed stepping issue in upper memory of MSP430FG4619
+   -   Clock Control now fully functional on AFE devices
+
+   Known Limitations:
+   -   If you unplug the USB FET during an active debug session,
+       the session could be interrupted and the IDE could stop working
+   -   Cycle Counter not functional
+       Workaround: None
+   -   EEM not fully supported (Trace/Sequencer/variable watch)
+       Workaround: None
+   -   Old UIF version (v1.3) firmware update not fully automated due
+       due to Hardware limitation
+       Workaround: An manual reset has to be done during major UIF
+       update
+========================================================================
+
+
+Rev 3.2.1.009
+========================================================================
+   10/18/2011 Florian Berenbrinker
+
+   !NOTE this an all new DLL design!
+   The DLL version 3.2.1.9 is an all new DLL design compared to
+   the last DLL version 2.9.4.1. This new DLL includes also a new
+   UIF-Firmware. Furthermore the USB driver has been changed to a
+   certified CDC driver.
+   The DLL is implemented in C++ and follows a object base
+   design, which is host operating system independent .
+   The API of the new DLL is the same as for the old one.
+   DLL functionality keeps the same as in the old V2 DLL.
+   The new DLL V3 also includes a compiled version of the DLL v2.
+   For more details please see www.ti.com/mspds
+
+   The new CDC drivers and other imported information about the new UIF
+   firmware update could be found in MSP430_DLL_Devopers guide, which
+   is part of this packet.
+
+   New device support:
+   CC430F6147 - 8 devices
+   -F6147, F6145, F6143, F5147, F5145, F5143, F5125, F5123
+
+   Known Limitations:
+   -   LPMx.5 debugging is not fully functional.
+   -   After wakeup from LPMx.5, MSP430_Run is not functional
+       Workaround: None
+   -   If you unplug the USB FET during an active debug session,
+       the session could be interrupted and the IDE could stop working
+   -   Cycle Counter not functional
+       Workaround: None
+   -   EEM not fully supported (Trace/Sequencer/variable watch)
+       Workaround: None
+   -   EEM Register Breakpoint not fully functional on CPUX derivatives
+       Workaround: None
+   -   Stepping upper memory of an MSP430FG4619 is not fully functional
+       in certain cases
+       Workaround: None
+   -   Old UIF version (v1.3) firmware update not fully automated due
+       to Hardware limitation
+       Workaround: An manual reset has to be done during major UIF
+       update.
+   -   Clock Control not fully functional for AFE devices
+       Workaround: None
+========================================================================

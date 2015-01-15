@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\TI\DLL430\Record.cpp" />
+    <ClCompile Include="src\Ti\Dll430\DeviceChainInfo.cpp" />
+    <ClCompile Include="src\TI\DLL430\DeviceDbManagerExt.cpp" />
+    <ClCompile Include="src\TI\DLL430\DeviceInfo.cpp" />
+    <ClCompile Include="src\TI\DLL430\FileFuncImpl.cpp" />
+    <ClCompile Include="src\TI\DLL430\VersionInfo.cpp" />
+    <ClCompile Include="src\TI\DLL430\WatchdogControl.cpp" />
+    <ClCompile Include="src\TI\DLL430\IoChannel.cpp">
+      <Filter>IOChannel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\IoChannelFactory.cpp">
+      <Filter>IOChannel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\HalExecBuffered.cpp">
+      <Filter>HalIO</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\HalExecCommand.cpp">
+      <Filter>HalIO</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\HalExecElement.cpp">
+      <Filter>HalIO</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\HalResponse.cpp">
+      <Filter>HalIO</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\FetControl.cpp">
+      <Filter>FET\FETControl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\FetControlThread.cpp">
+      <Filter>FET\FETControl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\logging\Logging.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\ConfigManagerV3.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\DebugManagerV3.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\DeviceHandleV3.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\MemoryManagerV3.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\DeviceHandleManagerV3.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DLL430_OldApiV3.cpp">
+      <Filter>OldAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F11xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430L092.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F12xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F13xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F14xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F15x.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F16xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F20xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F21xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F22xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F23xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F24_61x.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F24xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F41xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F42xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F43xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F44xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F46xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F471xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F47xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F51xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F52xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F53xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F54xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F55xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F56_66xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F64xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F67xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430FR57xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430G2xxx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430C092EMU.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430C092.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430AFE2xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\FetHandleV3.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\MemoryAreaBase.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\MemoryAreaFactory.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\FlashMemoryAccessBase.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\RandomMemoryAccess.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\LockableRamMemoryAccess.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\CpuMemoryAccess.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EemMemoryAccess.cpp">
+      <Filter>EEM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\FetHandleManagerImpl.cpp">
+      <Filter>FET</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\Logger.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\CC430F5_6xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\Registration.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\SpecialMemoryTypes.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\DatabaseImplementation.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\UsbIoChannel.cpp">
+      <Filter>IOChannel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\UsbCdcIoChannel.cpp">
+      <Filter>IOChannel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\RegisterAccessBase.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430F1_2_4xxx_masks.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\ClockCalibration.cpp" />
+    <ClCompile Include="src\DLL430_capi.cpp">
+      <Filter>OldAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DLL430_dllmain.cpp">
+      <Filter>OldAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FR59xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\UpdateManagerMSP_FET430.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EEM\CycleCounter.cpp">
+      <Filter>EEM</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\BreakpointManager\Breakpoint430.cpp">
+      <Filter>EM\BreakpointManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\BreakpointManager\BreakpointManager430.cpp">
+      <Filter>EM\BreakpointManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\CycleCounter\CycleCounter430.cpp">
+      <Filter>EM\CycleCounter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\EemRegisters\EemRegisterAccess.cpp">
+      <Filter>EM\EemRegisters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\EmulationManager\EmulationManager430.cpp">
+      <Filter>EM\EmulationManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\VariableWatch\VariableWatch430.cpp">
+      <Filter>EM\VariableWatch</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\VariableWatch\WatchedVariable430.cpp">
+      <Filter>EM\VariableWatch</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\Trigger\Trigger430.cpp">
+      <Filter>EM\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\TriggerCondition430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\RegisterCondition430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\TriggerConditionManager430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\AddressRangeCondition430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\DataRangeCondition430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\DataValueCondition430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\AddressCondition430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\Sequencer\Sequencer430.cpp">
+      <Filter>EM\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerManager\TriggerConfigurator430.cpp">
+      <Filter>EM\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerManager\TriggerManager430.cpp">
+      <Filter>EM\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\EmulationManager\EmulationManager430Create.cpp">
+      <Filter>EM\EmulationManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\Trace\Trace430.cpp">
+      <Filter>EM\Trace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\StateStorage430\StateStorage430.cpp">
+      <Filter>EM\StateStorage430</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\Exceptions\Exceptions.cpp">
+      <Filter>EM\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\MessageData.cpp">
+      <Filter>HalIO</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430G2xx5.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\HidUpdateManager.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\PinSequence.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FR69xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\UpdateManagerDummy.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\PollingManager.cpp" />
+    <ClCompile Include="src\Ti\Dll430\FramMemoryAccessFRx9.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\MainMemoryAccessBase.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceManager.cpp">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessor.cpp">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId7.cpp">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId8.cpp">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceRunningAverageFilter.cpp">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpoints430.cpp">
+      <Filter>EM\SoftwareBreakpoints</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\SoftwareTriggerCondition430.cpp">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpointManager.cpp">
+      <Filter>EM\SoftwareBreakpoints</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\UpdateManagerFet.cpp">
+      <Filter>v3</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\pch.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430I20xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FG662x.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\MpuFRx.cpp">
+      <Filter>Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FR41xx.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\RF430FRL15xH.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\DeviceUnknown.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\DeviceLegacy.cpp">
+      <Filter>TemplateDB</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceJstateParser.cpp">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\TI\DLL430\Record.h" />
+    <ClInclude Include="src\TI\DLL430\ConfigManager.h" />
+    <ClInclude Include="src\TI\DLL430\DebugManager.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceChainInfo.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceDbManager.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceDbManagerExt.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceHandle.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceHandleManager.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceInfo.h" />
+    <ClInclude Include="src\TI\DLL430\FileFunc.h" />
+    <ClInclude Include="src\TI\DLL430\FileFuncImpl.h" />
+    <ClInclude Include="src\TI\DLL430\Log.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="src\TI\DLL430\VersionInfo.h" />
+    <ClInclude Include="src\TI\DLL430\WatchdogControl.h" />
+    <ClInclude Include="src\Ti\Dll430\FuncletCode.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\Utility.h" />
+    <ClInclude Include="src\TI\DLL430\IoChannel.h">
+      <Filter>IOChannel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\IoChannelFactory.h">
+      <Filter>IOChannel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\HalResponse.h">
+      <Filter>HalIO</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\HalExecBuffered.h">
+      <Filter>HalIO</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\HalExecCommand.h">
+      <Filter>HalIO</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\HalExecElement.h">
+      <Filter>HalIO</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\HalResponseHandler.h">
+      <Filter>HalIO</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FetControlThread.h">
+      <Filter>FET\FETControl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FetControl.h">
+      <Filter>FET\FETControl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\logging\Logging.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\ConfigManagerV3.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\DebugManagerV3.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\DeviceHandleV3.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MemoryManagerV3.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\DeviceHandleManagerV3.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MSP430.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MSP430_Debug.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MSP430_EEM.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MSP430_FET.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DLL430_OldApi.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DLL430_OldApiV3.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F1xxx.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F2xxx.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F4xxx.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F5xxx.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FetHandleV3.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MemoryManager.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MemoryAreaBase.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MemoryAreaFactory.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MemoryCache.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FlashMemoryAccessBase.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\ReadonlyMemoryAccess.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\RandomMemoryAccess.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\LockableRamMemoryAccess.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\CpuMemoryAccess.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EemMemoryAccess.h">
+      <Filter>EEM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FetHandle.h">
+      <Filter>FET</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FetHandleManagerImpl.h">
+      <Filter>FET</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FetHandleManager.h">
+      <Filter>FET</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\Logger.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\TemplateTypes.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\UsbTypes.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\Registration.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\SpecialMemoryTypes.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\DatabaseImplementation.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\PortInfo.h">
+      <Filter>IOChannel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\UsbIoChannel.h">
+      <Filter>IOChannel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\UsbCdcIoChannel.h">
+      <Filter>IOChannel</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\RegisterAccessBase.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\TemplateDeviceDb\MSP430F1_2_4xxx_masks.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MSP430_EnergyTrace.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\HidUpdateManager.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\ClockCalibration.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430Defaults.h">
+      <Filter>TemplateDB</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\UpdateManagerMSP_FET430.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\DoubleBuffer.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\IDataProcessor.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EEM\CycleCounter.h">
+      <Filter>EEM</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\IBreakpoint.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\IBreakpointManager.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\CycleCounter\ICycleCounter.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\EmulationManager\IEmulationManager.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\Sequencer\ISequencer.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\ITriggerCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\ISoftwareTriggerCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IRegisterCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IInstructionRangeCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IInstructionAddressCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IDataValueCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IDataRangeCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IDataAddressCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IAddressRangeCondition.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\ITriggerConditionManager.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\IVariableWatch.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\IWatchedVariable.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\BreakpointManager430.h">
+      <Filter>EM\BreakpointManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\Breakpoint430.h">
+      <Filter>EM\BreakpointManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\CycleCounter\CycleCounter430.h">
+      <Filter>EM\CycleCounter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\EemRegisters\EemRegisterAccess.h">
+      <Filter>EM\EemRegisters</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\EmulationManager\EmulationManager430.h">
+      <Filter>EM\EmulationManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\WatchedVariable430.h">
+      <Filter>EM\VariableWatch</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\VariableWatch430.h">
+      <Filter>EM\VariableWatch</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\Trigger\Trigger430.h">
+      <Filter>EM\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\TriggerCondition430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\RegisterCondition430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\TriggerDefinitions.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\TriggerConditionManager430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\AddressRangeCondition430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\DataRangeCondition430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\DataValueCondition430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\AddressCondition430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\Sequencer\Sequencer430.h">
+      <Filter>EM\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerManager\TriggerConfigurator430.h">
+      <Filter>EM\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerManager\TriggerManager430.h">
+      <Filter>EM\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\Trace\ITrace.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\Trace\Trace430.h">
+      <Filter>EM\Trace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\StateStorage430\StateStorage430.h">
+      <Filter>EM\StateStorage430</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\Exceptions\Exceptions.h">
+      <Filter>EM\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MessageData.h">
+      <Filter>HalIO</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EventNotifier.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MessageQueue.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\UpdateManagerDummy.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\PinSequence.h" />
+    <ClInclude Include="src\TI\DLL430\UpdateManager.h" />
+    <ClInclude Include="src\TI\DLL430\PollingManager.h" />
+    <ClInclude Include="src\Ti\Dll430\FramMemoryAccessFRx9.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\FramMemoryAccessBase.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MSP430_HIL.h">
+      <Filter>OldAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MainMemoryAccessBase.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessor.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId7.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId8.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceRunningAverageFilter.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpoints430.h">
+      <Filter>EM\SoftwareBreakpoints</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\SoftwareBreakpoints\ISoftwareBreakpoints.h">
+      <Filter>EM\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpointManager.h">
+      <Filter>EM\SoftwareBreakpoints</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\SoftwareTriggerCondition430.h">
+      <Filter>EM\TriggerCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceManager.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\UpdateManagerFet.h">
+      <Filter>v3</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\pch.h" />
+    <ClInclude Include="..\Bios\include\JtagId.h" />
+    <ClInclude Include="src\TI\DLL430\MpuFRx.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\MpuWriteProtection.h">
+      <Filter>Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\SyncedCallWrapper.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceJstateParser.h">
+      <Filter>EnergyTrace_TSPA</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DLL430.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DLL430.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="EEM">
+      <UniqueIdentifier>{7c4d7691-8040-4a50-a95b-a418344175e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IOChannel">
+      <UniqueIdentifier>{8a084768-0a5e-4b31-a99b-7ce54f44a12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HalIO">
+      <UniqueIdentifier>{f64fe8b3-3a6f-4903-938d-c6cb3a84b47a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{929b9131-8a76-4b58-908d-b008687b666e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="v3">
+      <UniqueIdentifier>{36d26142-c388-45a9-bf95-1ea738ebf162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OldAPI">
+      <UniqueIdentifier>{0c67e527-eb9a-44ad-9677-2abf78970b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Memory">
+      <UniqueIdentifier>{9592ebe5-2967-4c56-ab46-206a818cd8de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FET">
+      <UniqueIdentifier>{7338bea6-a434-49af-88b2-b85675925b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FET\FETControl">
+      <UniqueIdentifier>{27fea1a7-4c92-40da-ab50-142c50520fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TemplateDB">
+      <UniqueIdentifier>{4a637ce5-d312-4726-beeb-7aa5343a45ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM">
+      <UniqueIdentifier>{76d8c276-ca38-4330-af5f-fb9f1d38df10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\Interfaces">
+      <UniqueIdentifier>{f5149ab6-239b-4782-9123-1c2511006185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\BreakpointManager">
+      <UniqueIdentifier>{e9c66334-87c4-43b9-af63-6c76fb7a3dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\CycleCounter">
+      <UniqueIdentifier>{09d58beb-9e42-4185-8090-2f3a3cf9c610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\EemRegisters">
+      <UniqueIdentifier>{73909a7a-baf3-4ab4-91a2-567ae16ff58e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\EmulationManager">
+      <UniqueIdentifier>{b188cdbe-4ed9-46a9-8f3e-cb1c188a3586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\Sequencer">
+      <UniqueIdentifier>{7c5f46eb-090d-41b7-b6ac-6411b36a4adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\TriggerCondition">
+      <UniqueIdentifier>{b7633cce-74f1-4614-9132-2c728886c089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\Trigger">
+      <UniqueIdentifier>{85beb1fe-e7e5-4677-9704-92155b49ba83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\VariableWatch">
+      <UniqueIdentifier>{5f2ea09e-349d-4d15-a80c-4f0dfc40c8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\Trace">
+      <UniqueIdentifier>{30edf660-e54f-478a-95f4-6ebc24f15aa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\StateStorage430">
+      <UniqueIdentifier>{719c307c-6577-4c5b-ab9d-b10b2290c077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\Exceptions">
+      <UniqueIdentifier>{f985898c-bf77-4e29-961b-1983c22bf19f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EnergyTrace_TSPA">
+      <UniqueIdentifier>{930ad1ba-6bfe-47bb-a341-a85224223835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EM\SoftwareBreakpoints">
+      <UniqueIdentifier>{4c1bb0ba-e054-4104-a0ba-e94ec4648ea9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

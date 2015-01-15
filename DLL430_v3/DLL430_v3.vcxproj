@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{09C86548-E56B-439C-B8C8-6ADAA90ED37A}</ProjectGuid>
+    <RootNamespace>DLL430_v3</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MSP430</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MSP430</TargetName>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\TI\DLL430;$(ProjectDir)\src\TI\DLL430\EnergyTrace_TSPA;include;$(SolutionDir)\Bios\include;$(SolutionDir)\ThirdParty\BSL430_DLL;$(SolutionDir)\Thirdparty\include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DLL430_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalOptions>/Zm120 %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>setupapi.lib;BSL430_DLLd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration);$(SolutionDir)ThirdParty\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(ProjectDir)/DLL430.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>false</OptimizeReferences>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <AdditionalIncludeDirectories>$(ProjectDir)\src\TI\DLL430;$(ProjectDir)\src\TI\DLL430\EnergyTrace_TSPA;include;$(SolutionDir)\Bios\include;$(SolutionDir)\ThirdParty\BSL430_DLL;$(SolutionDir)\Thirdparty\include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;DLL430_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/Zm120 %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <CompileAsManaged>false</CompileAsManaged>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>setupapi.lib;BSL430_DLL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration);$(SolutionDir)ThirdParty\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(ProjectDir)/DLL430.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\TI\DLL430\ClockCalibration.cpp" />
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceManager.cpp" />
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessor.cpp" />
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId7.cpp" />
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId8.cpp" />
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceJstateParser.cpp" />
+    <ClCompile Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceRunningAverageFilter.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpointManager.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpoints430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\SoftwareTriggerCondition430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EEM\CycleCounter.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\BreakpointManager\Breakpoint430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\BreakpointManager\BreakpointManager430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\CycleCounter\CycleCounter430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\EemRegisters\EemRegisterAccess.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\EmulationManager\EmulationManager430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\EmulationManager\EmulationManager430Create.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\Exceptions\Exceptions.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\Sequencer\Sequencer430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\StateStorage430\StateStorage430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\Trace\Trace430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\AddressCondition430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\AddressRangeCondition430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\DataRangeCondition430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\DataValueCondition430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\RegisterCondition430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\TriggerCondition430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerCondition\TriggerConditionManager430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerManager\TriggerConfigurator430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\TriggerManager\TriggerManager430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\Trigger\Trigger430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\VariableWatch\VariableWatch430.cpp" />
+    <ClCompile Include="src\TI\DLL430\EM\VariableWatch\WatchedVariable430.cpp" />
+    <ClCompile Include="src\TI\DLL430\HidUpdateManager.cpp" />
+    <ClCompile Include="src\TI\DLL430\IoChannel.cpp" />
+    <ClCompile Include="src\TI\DLL430\IoChannelFactory.cpp" />
+    <ClCompile Include="src\TI\DLL430\MainMemoryAccessBase.cpp" />
+    <ClCompile Include="src\TI\DLL430\MessageData.cpp" />
+    <ClCompile Include="src\TI\DLL430\MpuFRx.cpp" />
+    <ClCompile Include="src\TI\DLL430\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\TI\DLL430\PinSequence.cpp" />
+    <ClCompile Include="src\TI\DLL430\PollingManager.cpp" />
+    <ClCompile Include="src\TI\DLL430\Record.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\DeviceLegacy.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430F1_2_4xxx_masks.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FG662x.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FR59xx.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FR69xx.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430G2xx5.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430FR41xx.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\RF430FRL15xH.cpp" />
+    <ClCompile Include="src\TI\DLL430\UpdateManagerDummy.cpp" />
+    <ClCompile Include="src\TI\DLL430\UpdateManagerFet.cpp" />
+    <ClCompile Include="src\TI\DLL430\UpdateManagerMSP_FET430.cpp" />
+    <ClCompile Include="src\TI\DLL430\UsbCdcIoChannel.cpp" />
+    <ClCompile Include="src\TI\DLL430\TemplateDeviceDb\MSP430I20xx.cpp" />
+    <ClCompile Include="src\TI\DLL430\UsbIoChannel.cpp" />
+    <ClCompile Include="src\TI\DLL430\CpuMemoryAccess.cpp" />
+    <ClCompile Include="src\TI\Dll430\DeviceChainInfo.cpp" />
+    <ClCompile Include="src\TI\DLL430\DeviceDbManagerExt.cpp" />
+    <ClCompile Include="src\TI\DLL430\DeviceInfo.cpp" />
+    <ClCompile Include="src\DLL430_dllmain.cpp" />
+    <ClCompile Include="src\TI\DLL430\EemMemoryAccess.cpp" />
+    <ClCompile Include="src\TI\DLL430\FetHandleManagerImpl.cpp" />
+    <ClCompile Include="src\TI\DLL430\FileFuncImpl.cpp" />
+    <ClCompile Include="src\TI\DLL430\FlashMemoryAccessBase.cpp" />
+    <ClCompile Include="src\Ti\Dll430\FramMemoryAccessFRx9.cpp" />
+    <ClCompile Include="src\Ti\Dll430\LockableRamMemoryAccess.cpp" />
+    <ClCompile Include="src\TI\DLL430\Logger.cpp" />
+    <ClCompile Include="src\TI\DLL430\MemoryAreaBase.cpp" />
+    <ClCompile Include="src\TI\DLL430\MemoryAreaFactory.cpp" />
+    <ClCompile Include="src\TI\DLL430\RandomMemoryAccess.cpp" />
+    <ClCompile Include="src\TI\DLL430\RegisterAccessBase.cpp" />
+    <ClCompile Include="src\TI\DLL430\VersionInfo.cpp" />
+    <ClCompile Include="src\TI\DLL430\WatchdogControl.cpp" />
+    <ClCompile Include="src\TI\DLL430\FetControl.cpp" />
+    <ClCompile Include="src\TI\DLL430\FetControlThread.cpp" />
+    <ClCompile Include="src\Ti\Dll430\HalExecBuffered.cpp" />
+    <ClCompile Include="src\TI\DLL430\HalExecCommand.cpp" />
+    <ClCompile Include="src\TI\DLL430\HalExecElement.cpp" />
+    <ClCompile Include="src\TI\DLL430\HalResponse.cpp" />
+    <ClCompile Include="src\TI\DLL430\ConfigManagerV3.cpp" />
+    <ClCompile Include="src\TI\DLL430\DebugManagerV3.cpp" />
+    <ClCompile Include="src\TI\DLL430\DeviceHandleManagerV3.cpp" />
+    <ClCompile Include="src\TI\DLL430\DeviceHandleV3.cpp" />
+    <ClCompile Include="src\TI\DLL430\FetHandleV3.cpp" />
+    <ClCompile Include="src\TI\DLL430\MemoryManagerV3.cpp" />
+    <ClCompile Include="src\DLL430_capi.cpp" />
+    <ClCompile Include="src\DLL430_OldApiV3.cpp" />
+    <ClCompile Include="src\Ti\Dll430\logging\Logging.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\CC430F5_6xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\DatabaseImplementation.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\DeviceUnknown.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430AFE2xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430C092.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430C092EMU.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F11xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F12xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F13xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F14xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F15x.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F16xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F20xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F21xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F22xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F23xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F24_61x.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F24xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F41xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F42xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F43xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F44xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F46xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F471xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F47xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F51xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F52xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F53xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F54xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F55xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F56_66xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F64xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F67xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430FR57xx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430G2xxx.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\MSP430L092.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\Registration.cpp" />
+    <ClCompile Include="src\Ti\Dll430\TemplateDeviceDb\SpecialMemoryTypes.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Bios\include\JtagId.h" />
+    <ClInclude Include="include\MSP430_HIL.h" />
+    <ClInclude Include="src\TI\DLL430\SyncedCallWrapper.h" />
+    <ClInclude Include="src\TI\DLL430\ClockCalibration.h" />
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceJstateParser.h" />
+    <ClInclude Include="src\TI\DLL430\EM\SoftwareBreakpoints\ISoftwareBreakpoints.h" />
+    <ClInclude Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpoints430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\SoftwareBreakpoints\SoftwareBreakpointManager.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\SoftwareTriggerCondition430.h" />
+    <ClInclude Include="src\TI\DLL430\EventNotifier.h" />
+    <ClInclude Include="include\MSP430_EnergyTrace.h" />
+    <ClInclude Include="src\TI\DLL430\MainMemoryAccessBase.h" />
+    <ClInclude Include="src\TI\DLL430\MpuWriteProtection.h" />
+    <ClInclude Include="src\TI\DLL430\pch.h" />
+    <ClInclude Include="src\TI\DLL430\PollingManager.h" />
+    <ClInclude Include="src\TI\DLL430\UpdateManager.h" />
+    <ClInclude Include="src\TI\DLL430\DoubleBuffer.h" />
+    <ClInclude Include="src\TI\DLL430\FramMemoryAccessBase.h" />
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceManager.h" />
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessor.h" />
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId7.h" />
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceProcessorId8.h" />
+    <ClInclude Include="src\TI\DLL430\EnergyTrace_TSPA\EnergyTraceRunningAverageFilter.h" />
+    <ClInclude Include="src\TI\DLL430\HidUpdateManager.h" />
+    <ClInclude Include="src\TI\DLL430\IDataProcessor.h" />
+    <ClInclude Include="src\TI\DLL430\EEM\CycleCounter.h" />
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\Breakpoint430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\BreakpointManager430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\IBreakpoint.h" />
+    <ClInclude Include="src\TI\DLL430\EM\BreakpointManager\IBreakpointManager.h" />
+    <ClInclude Include="src\TI\DLL430\EM\CycleCounter\CycleCounter430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\CycleCounter\ICycleCounter.h" />
+    <ClInclude Include="src\TI\DLL430\EM\EemRegisters\EemRegisterAccess.h" />
+    <ClInclude Include="src\TI\DLL430\EM\EmulationManager\EmulationManager430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\EmulationManager\IEmulationManager.h" />
+    <ClInclude Include="src\TI\DLL430\EM\Exceptions\Exceptions.h" />
+    <ClInclude Include="src\TI\DLL430\EM\Sequencer\ISequencer.h" />
+    <ClInclude Include="src\TI\DLL430\EM\Sequencer\Sequencer430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\StateStorage430\StateStorage430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\Trace\ITrace.h" />
+    <ClInclude Include="src\TI\DLL430\EM\Trace\Trace430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\AddressCondition430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\AddressRangeCondition430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\DataRangeCondition430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\DataValueCondition430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IAddressRangeCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IDataAddressCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IDataRangeCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IDataValueCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IInstructionAddressCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IInstructionRangeCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\IRegisterCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\ISoftwareTriggerCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\ITriggerCondition.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\ITriggerConditionManager.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\RegisterCondition430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\TriggerCondition430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\TriggerConditionManager430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerCondition\TriggerDefinitions.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerManager\TriggerConfigurator430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\TriggerManager\TriggerManager430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\Trigger\Trigger430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\IVariableWatch.h" />
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\IWatchedVariable.h" />
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\VariableWatch430.h" />
+    <ClInclude Include="src\TI\DLL430\EM\VariableWatch\WatchedVariable430.h" />
+    <ClInclude Include="src\TI\DLL430\IoChannel.h" />
+    <ClInclude Include="src\TI\DLL430\IoChannelFactory.h" />
+    <ClInclude Include="src\TI\DLL430\PinSequence.h" />
+    <ClInclude Include="src\TI\DLL430\PortInfo.h" />
+    <ClInclude Include="src\TI\DLL430\MessageData.h" />
+    <ClInclude Include="src\TI\DLL430\MessageQueue.h" />
+    <ClInclude Include="src\TI\DLL430\MpuFRx.h" />
+    <ClInclude Include="src\TI\DLL430\Record.h" />
+    <ClInclude Include="src\TI\DLL430\TemplateDeviceDb\MSP430F1_2_4xxx_masks.h" />
+    <ClInclude Include="src\TI\DLL430\UpdateManagerDummy.h" />
+    <ClInclude Include="src\TI\DLL430\UpdateManagerFet.h" />
+    <ClInclude Include="src\TI\DLL430\UpdateManagerMSP_FET430.h" />
+    <ClInclude Include="src\TI\DLL430\UsbCdcIoChannel.h" />
+    <ClInclude Include="src\TI\DLL430\UsbIoChannel.h" />
+    <ClInclude Include="src\TI\DLL430\ConfigManager.h" />
+    <ClInclude Include="src\TI\DLL430\CpuMemoryAccess.h" />
+    <ClInclude Include="src\TI\DLL430\DebugManager.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceChainInfo.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceDbManager.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceDbManagerExt.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceHandle.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceHandleManager.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceInfo.h" />
+    <ClInclude Include="src\TI\DLL430\EemMemoryAccess.h" />
+    <ClInclude Include="src\TI\DLL430\FetHandle.h" />
+    <ClInclude Include="src\TI\DLL430\FetHandleManager.h" />
+    <ClInclude Include="src\TI\DLL430\FetHandleManagerImpl.h" />
+    <ClInclude Include="src\TI\DLL430\FileFunc.h" />
+    <ClInclude Include="src\TI\DLL430\FileFuncImpl.h" />
+    <ClInclude Include="src\TI\DLL430\FlashMemoryAccessBase.h" />
+    <ClInclude Include="src\Ti\Dll430\FramMemoryAccessFRx9.h" />
+    <ClInclude Include="src\Ti\Dll430\LockableRamMemoryAccess.h" />
+    <ClInclude Include="src\TI\DLL430\Log.h" />
+    <ClInclude Include="src\TI\DLL430\Logger.h" />
+    <ClInclude Include="src\TI\DLL430\MemoryAreaBase.h" />
+    <ClInclude Include="src\TI\DLL430\MemoryAreaFactory.h" />
+    <ClInclude Include="src\TI\DLL430\MemoryCache.h" />
+    <ClInclude Include="src\TI\DLL430\MemoryManager.h" />
+    <ClInclude Include="src\TI\DLL430\RandomMemoryAccess.h" />
+    <ClInclude Include="src\TI\DLL430\ReadonlyMemoryAccess.h" />
+    <ClInclude Include="src\TI\DLL430\RegisterAccessBase.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="src\TI\DLL430\VersionInfo.h" />
+    <ClInclude Include="src\TI\DLL430\WatchdogControl.h" />
+    <ClInclude Include="src\TI\DLL430\FetControl.h" />
+    <ClInclude Include="src\TI\DLL430\FetControlThread.h" />
+    <ClInclude Include="src\Ti\Dll430\HalExecBuffered.h" />
+    <ClInclude Include="src\TI\DLL430\HalExecCommand.h" />
+    <ClInclude Include="src\TI\DLL430\HalExecElement.h" />
+    <ClInclude Include="src\TI\DLL430\HalResponse.h" />
+    <ClInclude Include="src\TI\DLL430\HalResponseHandler.h" />
+    <ClInclude Include="src\TI\DLL430\ConfigManagerV3.h" />
+    <ClInclude Include="src\TI\DLL430\DebugManagerV3.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceHandleManagerV3.h" />
+    <ClInclude Include="src\TI\DLL430\DeviceHandleV3.h" />
+    <ClInclude Include="src\TI\DLL430\FetHandleV3.h" />
+    <ClInclude Include="src\TI\DLL430\MemoryManagerV3.h" />
+    <ClInclude Include="src\DLL430_OldApi.h" />
+    <ClInclude Include="src\DLL430_OldApiV3.h" />
+    <ClInclude Include="include\MSP430.h" />
+    <ClInclude Include="include\MSP430_Debug.h" />
+    <ClInclude Include="include\MSP430_EEM.h" />
+    <ClInclude Include="include\MSP430_FET.h" />
+    <ClInclude Include="src\Ti\Dll430\logging\Logging.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\DatabaseImplementation.h" />
+    <ClInclude Include="src\Ti\Dll430\FuncletCode.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430Defaults.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F1xxx.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F2xxx.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F4xxx.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\MSP430F5xxx.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\Registration.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\SpecialMemoryTypes.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\TemplateTypes.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\UsbTypes.h" />
+    <ClInclude Include="src\Ti\Dll430\TemplateDeviceDb\Utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DLL430.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DLL430.def" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
