@@ -38,7 +38,7 @@
 #include <pch.h>
 #include "HidUpdateManager.h"
 
-#include <hidapi.h>
+#include <hidapi/hidapi.h>
 
 #include <BSL430_DLL/Connections/MSPBSL_Connection5xxUSB.h>
 #include <BSL430_DLL/MSPBSL_Factory.h>

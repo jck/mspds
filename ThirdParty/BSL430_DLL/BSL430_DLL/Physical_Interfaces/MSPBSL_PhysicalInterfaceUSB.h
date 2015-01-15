@@ -38,7 +38,7 @@
 
 #pragma once
 
-#include <hidapi.h>
+#include <hidapi/hidapi.h>
 
 #include "MSPBSL_PhysicalInterface.h"
 
