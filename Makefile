@@ -55,7 +55,7 @@ STATIC_LIBS :=
 ifdef STATIC
 STATIC_LIBS += -lboost_thread -lboost_filesystem -lboost_date_time -lboost_system -lbsl430 -lusb-1.0 -lrt
 else
-LIBS += -lboost_thread -lboost_filesystem -lboost_date_time -lboost_system -lbsl430 -lusb-1.0 -lrt
+LIBS += -lboost_thread -lboost_filesystem -lboost_date_time -lboost_system -lbsl430 -lusb-1.0 -lhidapi-libusb -lrt
 endif
 
 LIBS += -lpthread
@@ -88,7 +88,7 @@ OBJS := $(patsubst %.cpp, %.o, $(SRC))
 OUTPUT := libmsp430.so
 
 all: $(BSLLIB) $(OBJS)
-	$(CXX) $(CXXFLAGS) -shared -Wl,-soname,$(OUTPUT) -o $(OUTPUT) $(OBJS) ThirdParty/lib/hid-libusb.o $(LIBDIRS) -Wl,-Bstatic $(STATIC_LIBS) -Wl,-Bdynamic $(LIBS)
+	$(CXX) $(CXXFLAGS) -shared -Wl,-soname,$(OUTPUT) -o $(OUTPUT) $(OBJS) $(LIBDIRS) -Wl,-Bstatic $(STATIC_LIBS) -Wl,-Bdynamic $(LIBS)
 
 $(PCH_COMPILED): $(PCH_HEADER)
 	$(CXX) $(MAKE_PCH) -o $@ $< $(CXXFLAGS) $(INCLUDES) $(DEFINES)
